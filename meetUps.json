@@ -1,0 +1,122 @@
+[
+  {
+    "title": "Tokyo Nightlifing",
+    "description": "An international party & meetup based",
+    "tags": [
+      "Tokio",
+      "MeetUp"
+    ],
+    "date": "2022-05-07T15:00:00",
+    "location": "Tokio",
+    "id": 1
+  },
+  {
+    "title": "QA MeetUp",
+    "description": "Testing is everything",
+    "tags": [
+      "Minsk",
+      "MeetUp",
+      "QA"
+    ],
+    "date": "2022-05-01T17:00:00",
+    "location": "Minsk",
+    "id": 2
+  },
+  {
+    "title": ".NET MeetUp",
+    "description": "Discussion of best design patterns",
+    "tags": [
+      "Moscow",
+      "MeetUp",
+      ".NET"
+    ],
+    "date": "2022-08-10T13:00:00",
+    "location": "Moscow",
+    "id": 3
+  },
+  {
+    "title": "HR MeetUp",
+    "description": "How to successfully search for candidates?",
+    "tags": [
+      "Minsk",
+      "MeetUp",
+      "HR"
+    ],
+    "date": "2022-08-10T17:00:00",
+    "location": "Minsk",
+    "id": 4
+  },
+  {
+    "title": "React/Angular MeetUp",
+    "description": "what's better?",
+    "tags": [
+      "Minsk",
+      "MeetUp",
+      "React",
+      "Angular"
+    ],
+    "date": "2022-06-11T18:00:00",
+    "location": "Minsk",
+    "id": 5
+  },
+  {
+    "title": "Teamwork MeetUp",
+    "description": "How to work productively in a team?",
+    "tags": [
+      "Moscow",
+      "MeetUp",
+      "Teamwork"
+    ],
+    "date": "2022-05-05T13:00:00",
+    "location": "Moscow",
+    "id": 6
+  },
+  {
+    "title": "Android dev. MeetUp",
+    "description": "Testing is everything",
+    "tags": [
+      "Minsk",
+      "MeetUp",
+      "Android"
+    ],
+    "date": "2022-08-02T17:00:00",
+    "location": "Minsk",
+    "id": 7
+  },
+  {
+    "title": "PHP MeetUp",
+    "description": "Should i choose php in 2022?",
+    "tags": [
+      "Minsk",
+      "MeetUp",
+      "PHP"
+    ],
+    "date": "2022-03-10T16:00:00",
+    "location": "Minsk",
+    "id": 8
+  },
+  {
+    "title": "Python MeetUp",
+    "description": "Best scripting language",
+    "tags": [
+      "Minsk",
+      "MeetUp",
+      "Python"
+    ],
+    "date": "2022-03-11T18:00:00",
+    "location": "Minsk",
+    "id": 9
+  },
+  {
+    "title": "C++ MeetUp",
+    "description": "Is c++ still relevant?",
+    "tags": [
+      "Minsk",
+      "MeetUp",
+      "C++"
+    ],
+    "date": "2022-07-07T12:00:00",
+    "location": "Minsk",
+    "id": 10
+  }
+]

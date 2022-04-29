@@ -18,6 +18,8 @@ namespace CRUD_WEB_API
             {
                 entity.ToTable("MeetUp");
 
+                entity.HasKey(e => e.Id);
+
                 entity.Property(e => e.Date).HasColumnType("timestamp without time zone");
             });
 

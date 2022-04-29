@@ -1,7 +1,7 @@
-﻿using CRUD_WEB_API.Models;
-using CRUD_WEB_API.Paginations;
-using CRUD_WEB_API.Repositories;
-using CRUD_WEB_API.SortingModels;
+﻿using AutoMapper;
+using CRUD_WEB_API.DTO;
+using CRUD_WEB_API.Interfaces;
+using CRUD_WEB_API.Options;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CRUD_WEB_API.Controllers
@@ -10,61 +10,75 @@ namespace CRUD_WEB_API.Controllers
     [Route("api/[controller]")]
     public class MeetUpsController : ControllerBase
     {
-        readonly IDbRepository<MeetUp> _meetUpRepository;
+        readonly IRepository<MeetUp> _meetUpRepository;
+        readonly IMeetUpService _meetUpService;
+        readonly IMapper _mapper;
 
-        public MeetUpsController(IDbRepository<MeetUp> dbRepository)
+        public MeetUpsController(IRepository<MeetUp> dbRepository, IMeetUpService meetUpService, IMapper mapper)
         {
             _meetUpRepository = dbRepository;
+            _meetUpService = meetUpService;
+            _mapper = mapper;
         }
 
         [HttpGet]
-        public IEnumerable<MeetUp> GetAllMeetUps([FromQuery] Pagination pagination,
-                                                 [FromQuery] SortingOptions sortingOptions, [FromQuery] string searchString = "")
+        public IEnumerable<MeetUpDTO> GetAllMeetUps([FromQuery] Pagination pagination,
+                                                 [FromQuery] SortingOptions sortingOptions,
+                                                 [FromQuery] string? searchString)
         {
-            return _meetUpRepository.GetWithOptions(pagination, sortingOptions, searchString);
+
+            var search = searchString is null ? "" : searchString;
+            var meetUps = _meetUpService.GetWithOptions(pagination, sortingOptions, search);
+
+            foreach (var item in meetUps)
+            {
+                yield return _mapper.Map<MeetUpDTO>(item);
+            }
         }
 
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            var meetUp = _meetUpRepository.Get(id);
+            var meetUp = _meetUpRepository.GetById(id);
 
             if (meetUp == null)
             {
                 return NotFound();
             }
 
-            return new ObjectResult(meetUp);
+            return new ObjectResult(_mapper.Map<MeetUpDTO>(meetUp));
         }
 
         [HttpPost]
-        public IActionResult Create([FromBody] MeetUp meetUp)
+        public IActionResult Create([FromBody] MeetUpDTO MeetUpDTO)
         {
-            if (meetUp == null)
+            if (MeetUpDTO == null)
             {
                 return BadRequest();
             }
+            var meetUP = _mapper.Map<MeetUp>(MeetUpDTO);
+            _meetUpRepository.Create(meetUP);
 
-            _meetUpRepository.Create(meetUp);
-            return CreatedAtRoute("GetMeetUp", new { id = meetUp.Id }, meetUp);
+            return Ok();
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update(int id, [FromBody] MeetUp updatedMeetUp)
+        public IActionResult Update(int id, [FromBody] MeetUpDTO updatedMeetUp)
         {
-            if (updatedMeetUp == null || updatedMeetUp.Id != id)
+            if (updatedMeetUp == null)
             {
                 return BadRequest();
             }
 
-            var meetUp = _meetUpRepository.Get(id);
+            var meetUp = _meetUpRepository.GetById(id);
             if (meetUp == null)
             {
                 return NotFound();
             }
 
-            _meetUpRepository.Update(updatedMeetUp);
-            return RedirectToRoute("GetAllItems");
+            var newMeetUp = _mapper.Map(updatedMeetUp, meetUp);
+            _meetUpRepository.Update(newMeetUp);
+            return Ok();
         }
 
         [HttpDelete("{id}")]
@@ -76,7 +90,7 @@ namespace CRUD_WEB_API.Controllers
                 return BadRequest();
             }
 
-            return new ObjectResult(deletedMeetUp);
+            return Ok();
         }
     }
 }
