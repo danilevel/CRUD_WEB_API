@@ -1,4 +1,4 @@
-﻿using CRUD_WEB_API.DTO;
+﻿using CRUD_WEB_API.Models;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;

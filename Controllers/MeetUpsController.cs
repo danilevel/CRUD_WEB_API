@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using CRUD_WEB_API.DTO;
-using CRUD_WEB_API.Interfaces;
+using CRUD_WEB_API.Models;
 using CRUD_WEB_API.Options;
+using CRUD_WEB_API.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CRUD_WEB_API.Controllers

@@ -1,6 +1,4 @@
-﻿using CRUD_WEB_API.DTO;
-
-namespace CRUD_WEB_API.DTO
+﻿namespace CRUD_WEB_API.Models
 {
     public class AuthenticateResponse
     {

@@ -1,7 +1,7 @@
-using CRUD_WEB_API.DTO;
-using CRUD_WEB_API.Interfaces;
 using CRUD_WEB_API;
+using CRUD_WEB_API.Models;
 using CRUD_WEB_API.Helpers;
+using CRUD_WEB_API.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

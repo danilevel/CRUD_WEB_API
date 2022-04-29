@@ -1,4 +1,4 @@
-﻿using CRUD_WEB_API.DTO;
+﻿using CRUD_WEB_API.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace CRUD_WEB_API

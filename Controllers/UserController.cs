@@ -1,7 +1,7 @@
-﻿using CRUD_WEB_API.DTO;
-using CRUD_WEB_API.Interfaces;
+﻿using CRUD_WEB_API.Helpers;
+using CRUD_WEB_API.Models;
+using CRUD_WEB_API.Services;
 using Microsoft.AspNetCore.Mvc;
-using CRUD_WEB_API.Helpers;
 
 namespace CRUD_WEB_API.Controllers
 {
@@ -49,7 +49,7 @@ namespace CRUD_WEB_API.Controllers
                 return BadRequest(new { message = "Authorization failed." });
             }
 
-             var response = await _userService.RegisterToMeetUp(int.Parse(userId), meetupId);
+            var response = await _userService.RegisterToMeetUp(int.Parse(userId), meetupId);
 
             return Ok(response);
         }

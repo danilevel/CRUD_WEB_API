@@ -1,7 +1,6 @@
-﻿using AutoMapper;
-using CRUD_WEB_API.DTO;
+﻿using CRUD_WEB_API.Models;
 
-namespace CRUD_WEB_API.Interfaces
+namespace CRUD_WEB_API.Services
 {
     public class Repository<T> : IRepository<T> where T : BaseEntity
     {

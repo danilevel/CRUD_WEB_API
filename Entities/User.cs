@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace CRUD_WEB_API.DTO
+namespace CRUD_WEB_API.Models
 {
     public class User : BaseEntity
     {

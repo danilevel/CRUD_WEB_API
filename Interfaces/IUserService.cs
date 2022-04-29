@@ -1,6 +1,6 @@
-﻿using CRUD_WEB_API.DTO;
+﻿using CRUD_WEB_API.Models;
 
-namespace CRUD_WEB_API.Interfaces
+namespace CRUD_WEB_API.Services
 {
     public interface IUserService
     {
